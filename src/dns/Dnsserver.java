@@ -5,12 +5,12 @@ import java.io.*;
 public class Dnsserver {
     DataOutputStream ipaddress;
     DataInputStream domainname;
-    static ServerSocket sock;
-    public final static int port = 5788;
+    static ServerSocket serverSocket;
+    public final static int port = 1386;
     public void setnet(){
         try{
             System.out.println("Connecting....");
-            Socket client = sock.accept();
+            Socket client = serverSocket.accept();
             while(client.isConnected()){
                 domainname = new DataInputStream(client.getInputStream());
                 String domainadd = domainname.readUTF();
@@ -44,7 +44,7 @@ public class Dnsserver {
 
         Dnsserver dns = new Dnsserver();
         try {
-            sock = new ServerSocket(port);
+            serverSocket = new ServerSocket(port);
             System.out.println("DNS SERVER STARTED");
 
         } catch (IOException e) {}

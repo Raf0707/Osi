@@ -1,6 +1,5 @@
-package utils;
+package web;
 
-import java.net.*;
 public class Node {
     int ipaddress_rec;
     int portaddress_rec;
